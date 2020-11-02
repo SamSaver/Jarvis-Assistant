@@ -95,7 +95,7 @@ def jokes():
     speak(j, voice_property)
 
 def weather(location):
-    response = requests.get(f"http://api.openweathermap.org/data/2.5/weather?q={location}&appid=107aaa207a0a45998a0829cef92379e3&units=metric")
+    response = requests.get(f"http://api.openweathermap.org/data/2.5/weather?q={location}&appid=YOUR_APP_ID&units=metric")
     response.raise_for_status()
     pythonValue = json.loads(response.text)
     print("Today's Weather Report is:")
@@ -254,7 +254,7 @@ if __name__ == "__main__":
 
         elif 'capture' in query:
             camera()
-        
+
         elif 'calendar' in query:
             speak('Do you want me to show you full year calendar or this month ?', voice_property)
             res = takeCommand().lower()
