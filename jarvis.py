@@ -78,14 +78,6 @@ def takeCommand():
             return "None"
     return query
 
-def sendEmail(to, content):
-    server = smtplib.SMTP("smtp.gmail.com",587)
-    server.ehlo()
-    server.starttls()
-    server.login('riemeltm@gmail.com',"vlhftsabujujofvn")
-    server.sendmail('riemeltm@gmail.com', to, content)
-    server.close()
-
 def screenshot():
     global i
     i += 1
@@ -179,19 +171,6 @@ if __name__ == "__main__":
             except Exception as e:
                 print(e)
                 speak('Sorry, Page does not exists', voice_property)
-
-        elif 'send email' in query:
-            try:
-                speak('To whom you want to send mail', voice_property)
-                to = takeCommand().lower()
-                to = to.replace(" ","")
-                speak('What message you want to send', voice_property)
-                content = takeCommand()
-                sendEmail(to, content)
-                speak('Email successfully sent!', voice_property)
-            except Exception as e:
-                print(e)
-                speak('Unable to send the email', voice_property)
 
         elif 'search in chrome' in query:
             speak('What would you like to search ?', voice_property)
